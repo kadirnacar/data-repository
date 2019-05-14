@@ -1,8 +1,10 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as xmlparser from "express-xml-bodyparser";
+import { createConnection } from "typeorm";
 import corsPrefetch from './cors';
-
+import { User } from "./models/User";
+import { DemoRouter } from "./routes/demo";
 
 class App {
   public express;
@@ -10,7 +12,23 @@ class App {
   constructor() {
     this.express = express();
     this.middleware();
+    this.database();
     this.routes();
+  }
+
+  private database(): void {
+
+    createConnection({
+      "host": "localhost",
+      "username": "root",
+      "password": "123",
+      "database": "northwind",
+      "type": "mysql",
+      synchronize: true,
+      entities: [User.schema()]
+    }).then(async connection => {
+      console.log("Connected to DB");
+    }).catch(error => console.log("TypeORM connection error: ", error));
   }
 
   private middleware(): void {
@@ -31,6 +49,7 @@ class App {
     })
 
     this.express.use("/", router);
+    this.express.use("/api/demo", new DemoRouter().router);
 
     this.express.use((err, req, res, next) => {
       res.status(err.status || 500);
