@@ -1,0 +1,50 @@
+{
+  "name": "data-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "webpack --config webpack.config.js --env.prod",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kadirnacar/data-repository.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kadirnacar/data-repository/issues"
+  },
+  "homepage": "https://github.com/kadirnacar/data-repository#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
+    "@types/lowdb": "^1.0.9",
+    "@types/node": "^12.0.1",
+    "@types/webpack-env": "^1.13.9",
+    "awesome-typescript-loader": "^5.2.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors-prefetch-middleware": "^1.0.0",
+    "express": "^4.16.4",
+    "express-xml-bodyparser": "^0.3.0",
+    "lowdb": "^1.0.0",
+    "mssql": "^5.1.0",
+    "mysql": "^2.17.1",
+    "source-map-support": "^0.5.12",
+    "terser-webpack-plugin": "^1.2.3",
+    "typeorm": "^0.2.17",
+    "websocket": "^1.0.28"
+  }
+}
